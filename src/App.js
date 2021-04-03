@@ -2,6 +2,9 @@ import './App.css';
 import NewTodoInput from "./components/new-todo-input/newTodoInput";
 import TodoList from "./components/todo list/todoList";
 
+
+
+
 const todos = [{
   id: "134713749319748913",
   title: "cleaning",
@@ -26,6 +29,7 @@ export default function App() {
        <NewTodoInput />
       </header>
       <main>
+       <button>Clear</button>,
        <TodoList todos={todos} /> 
         
       </main>

@@ -1,9 +1,12 @@
 import React from 'react';
 import './todoItem.css';
 
-function TodoItem ({title}) {
+function TodoItem ({title, isDone}) {
     return(
-        <li className='todoItem'><input type='checkbox'/> {title} <button>delete</button></li>
+        <li className={isDone ? "itemDone testClass" : "itemNotDone"}>
+            <input type='checkbox'/> 
+            {title} 
+            <button>delete</button></li>
     )
 }
 
