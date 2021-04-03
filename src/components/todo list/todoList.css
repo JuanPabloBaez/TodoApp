@@ -1,0 +1,10 @@
+.fullList {
+    height: 50vh;
+    background-color: cornflowerblue;
+    width: 60%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
