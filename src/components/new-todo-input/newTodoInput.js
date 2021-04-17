@@ -1,12 +1,36 @@
-import React from 'react';
+import React, { useState} from 'react';
 import "./newTodoInput.css"
 
-//const userInput = ReactDOM.findDOMNode(<NewTodoInput />).getElementsByClassName('new-input').value;
+function NewTodoInput ({addTodo}) {
+    const [inputValue, setInputValue] = useState('');
+    
+    function handleOnKeyDown({keyCode, target}) {
+            if (keyCode === 13) saveNewTodo();
+    
+      }
 
-function NewTodoInput () {
+      function handleInputValue({target}) {
+        setInputValue(target.value);  
+      }
+
+      function saveNewTodo() {
+        const newTodo = {
+            id: (Date.now() + Math.random()).toString(),
+            title: inputValue,
+            isDone: false
+        };
+        addTodo(newTodo);
+        setInputValue("")
+      }
+
     return (<div>
-        <input type='text' id='userInput' className='new-input' placeholder="What's next?" />
-        <button>Add New</button>
+        <input type='text'
+        value={inputValue} 
+        className='new-input' 
+        placeholder="What's next?" 
+        onKeyDown={handleOnKeyDown}
+        onChange={handleInputValue} />
+        <button onClick={saveNewTodo}>Add New</button>
     </div>);
 }
 

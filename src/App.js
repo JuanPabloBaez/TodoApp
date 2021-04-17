@@ -5,32 +5,46 @@ import TodoList from "./components/todo list/todoList";
 
 
 
-const todos = [{
-  id: "134713749319748913",
-  title: "cleaning",
-  isDone: false
-},
-{
-  id: "34954629579425425",
-  title: "Enjoy your eastern with family",
-  isDone: false
-},
-{
-  id: "724095784927859",
-  title: "Learn about props",
-  isDone: false
-}]
-
 export default function App() {
+  const [todos, setTodos] = useState([])
+  
+  function handleDelete(id) {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodos);
+  };
+
+   function handleNewTodo (newTodo) {
+    const newTodos = [newTodo, ...todos];
+    setTodos(newTodos);
+   }
+
+   function handleCompleteTodo(todoId) {
+    
+    const newTodos = todos.map((todo) => {
+      if (todo.id === todoId) {
+           todo.isDone = !todo.isDone;
+    }
+    return todo;
+     
+  });
+  setTodos(newTodos)
+}
+
+
+ 
+  
   return (
     <div className="App">
       <header className="App-header">
        <h1> Just another List</h1>
-       <NewTodoInput />
+       <NewTodoInput addTodo={handleNewTodo} />
+       
+
+       {/* <img src='./public/glitch.gif' alt='' /> */}
       </header>
       <main>
-       <button>Clear</button>,
-       <TodoList todos={todos} /> 
+       <button onClick={() => setTodos([])}>Clear</button>,
+       <TodoList todos={todos} deleteTodo={handleDelete} completedTodo={handleCompleteTodo} /> 
         
       </main>
     </div>

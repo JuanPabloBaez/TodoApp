@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+li {
+    width: 100%;
+    padding: 10px;
+    color: black;
+    display: flex;  
+}
+
+li input[type='checkbox'] { 
+    margin: 0 10px;
+ }
+
+ li p {
+     width: 100%;
+     margin: 0 10px;
+     text-align: left;
+ }
+
+ .itemDone p {
+     text-decoration: line-through;
+     font-style: italic;
+ }
+
+li button {
+    background-color: blue;
+    margin: 0 10px 0 auto;
+    
+}

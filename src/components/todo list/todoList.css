@@ -1,20 +1,13 @@
-.fullList {
-    height: 50vh;
-    background-color: cornflowerblue;
-    width: 60%;
-    margin: 20px auto;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    color: white;
+* {
+    margin: 0;
+    box-sizing: border-box;
 }
 
-li {
-    width: 100%;
-    padding: 10px;
-    display: flex;
-    align-content: space-around;
-}
-li button {
-    justify-self: right;
+.fullList {
+    min-height: 50vh;
+    border: 1px solid black;
+    width: 60%;
+    margin: 20px auto;
+    color: white;
+    padding: 0;
 }
